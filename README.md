@@ -26,10 +26,15 @@ void Fibonacci()
     }
 }
 
-int main()
-{
-    Elapsed elapsed;
-    Fibonacci();
+int main() {
+    {
+        Elapsed elapsed;
+        Fibonacci();
+    }
+    {
+        auto elapsed = make_unique<Elapsed>("Fibonacci func execution");
+        Fibonacci();
+    }
     return 0;
 }
 ```
@@ -40,22 +45,10 @@ The execution above will produce something like:
 
 ```
 Fibonacci Series: 0, 1, 1, 2, 3, 5, 8, 
-[ Elapsed time: : 	20 us ]
-```
-
-You can also customize initialize and customized the message accordingly to have a better tracking, like:
-
-```C++
-    auto elapsed = make_unique<Elapsed>("Fibonacci func execution");
-```
-
-This will produce a custom output:
-
-```
+[ Elapsed time: : 	15 us ]
 Fibonacci Series: 0, 1, 1, 2, 3, 5, 8, 
-[ Fibonacci func execution : 	14 us ]
+[ Fibonacci func execution : 	1 us ]
 ```
-
 
 
 
