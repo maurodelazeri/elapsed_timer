@@ -45,7 +45,7 @@ Fibonacci Series: 0, 1, 1, 2, 3, 5, 8,
 
 You can also customize initialize and customized the message accordingly to have a better tracking, like:
 
-```
+```C++
     auto elapsed = make_unique<Elapsed>("Fibonacci func execution");
 ```
 
